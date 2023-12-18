@@ -1,5 +1,5 @@
 <section
-  class="gradient-form bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 h-full flex"
+  class="gradient-form bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 h-full flex w-full"
 >
   <!-- Left column container-->
   <div class="w-full lg:w-6/12 bg-white flex justify-center items-center">
@@ -9,53 +9,62 @@
         <h4 class="mb-12 mt-1 pb-1 text-4xl font-semibold">Welcome Back!</h4>
       </div>
 
-      <form>
-        <p class="mb-4">Please login to your account</p>
-        <!--Username input-->
-        <div class="relative mb-4" data-te-input-wrapper-init>
+      <form (ngSubmit)="login()">
+        <!-- Username input -->
+        <div class="mb-4">
+          <label class="font-medium">Username</label>
           <input
             type="text"
-            class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.52rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="exampleFormControlInput1"
-            placeholder="Username"
+            name="username"
+            [(ngModel)]="username"
+            class="block w-full rounded border px-3 py-2 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:border-blue-500 mt-1"
+            id="username"
+            placeholder="Enter your Username"
           />
-          <label
-            for="exampleFormControlInput1"
-            class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.52rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-            >Username
-          </label>
         </div>
 
-        <!--Password input-->
-        <div class="relative mb-4" data-te-input-wrapper-init>
+        <!-- Password input -->
+        <div class="mb-4 relative">
+          <label class="font-medium">Password</label>
           <input
-            type="password"
-            class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.52rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="exampleFormControlInput11"
-            placeholder="Password"
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            name="password"
+            placeholder="Enter your Password"
+            [(ngModel)]="password"
+            class="block w-full rounded border px-3 py-2 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:border-blue-500 mt-1"
           />
-          <label
-            for="exampleFormControlInput11"
-            class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.52rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-            >Password
-          </label>
+          <i
+            (click)="togglePasswordVisibility()"
+            class="fas cursor-pointer absolute right-3 inset-y-0 my-auto top-10"
+            [class.fa-eye-slash]="showPassword"
+            [class.fa-eye]="!showPassword"
+          ></i>
         </div>
 
-        <!--Submit button-->
+        <!-- Submit button -->
         <div class="mb-6 pb-1 pt-1 text-center">
-          <app-button text="login"></app-button>
-        </div>
-        <!--Forgot password link-->
-        <div class="mt-4 mb-12 text-right">
-          <a href="#!" class="underline">Forgot password?</a>
-        </div>
-
-        <!--Register button-->
-        <div class="flex items-center justify-center pb-6">
-          <p class="mb-0 mr-2">Don't have an account?</p>
-          <app-button-outline text="Register"></app-button-outline>
+          <!-- <app-button type="submit" text="Login" class="w-full"> </app-button> -->
+          <button
+            class="bg-blue-600 w-full p-2 rounded text-white hover:bg-blue-700"
+            type="submit"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+          >
+            Login
+          </button>
         </div>
       </form>
+      <!-- forgot password link-->
+      <div class="mt-4 mb-12 text-right">
+        <a href="#!" class="underline">Forgot password?</a>
+      </div>
+
+      <!--Register button-->
+      <div class="flex items-center justify-center pb-6">
+        <p class="mb-0 mr-2">Don't have an account?</p>
+        <app-button-outline text="Register"></app-button-outline>
+      </div>
     </div>
   </div>
 
