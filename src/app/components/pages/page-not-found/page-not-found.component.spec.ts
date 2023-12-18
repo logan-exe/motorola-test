@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageNotFoundComponent } from './page-not-found.component';
-import { ButtonComponent } from '../button/button.component';
+import { ButtonComponent } from '../../resuables/button/button.component';
 
 describe('PageNotFoundComponent', () => {
   let component: PageNotFoundComponent;
