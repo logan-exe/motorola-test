@@ -17,8 +17,7 @@ export class AuthGuard implements CanActivate {
   }
 
   private isLoggedIn(): boolean {
-    // Implement your logic to check if the user is logged in
-    // For example, check if the user's token is stored in local storage
+    // Checking, if the user's token is stored in local storage as an authentication
     return !!localStorage.getItem('userToken');
   }
 }

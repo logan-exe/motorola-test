@@ -25,12 +25,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log('wer11');
     if (this.username && this.password) {
       localStorage.setItem('userToken', 'your-token-value'); // Replace with actual token
       this.router.navigate(['/home']);
     } else {
-      console.log('wer');
       alert('Username and password are required');
     }
   }

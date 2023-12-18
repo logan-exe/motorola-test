@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageNotFoundComponent } from './page-not-found.component';
+import { ButtonComponent } from '../button/button.component';
 
 describe('PageNotFoundComponent', () => {
   let component: PageNotFoundComponent;
@@ -8,9 +9,8 @@ describe('PageNotFoundComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageNotFoundComponent ]
-    })
-    .compileComponents();
+      declarations: [PageNotFoundComponent, ButtonComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PageNotFoundComponent);
     component = fixture.componentInstance;
